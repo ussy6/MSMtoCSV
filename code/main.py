@@ -69,7 +69,7 @@ for k in range(size):
     cwd = os.getcwd()
     os.chdir('../storage/grib2')
     grib2dir = os.getcwd()
-    os.chdir('../code')
+    os.chdir('../../code')
 
     url_list = [f'http://database.rish.kyoto-u.ac.jp/arch/jmadata/data/gpv/original/{year}/{month}/{date}/Z__C_RJTD_{initialtime}_MSM_GPV_Rjp_Lsurf_FH00-15_grib2.bin'\
     ,f'http://database.rish.kyoto-u.ac.jp/arch/jmadata/data/gpv/original/{year}/{month}/{date}/Z__C_RJTD_{initialtime}_MSM_GPV_Rjp_Lsurf_FH16-33_grib2.bin'\
@@ -84,7 +84,7 @@ for k in range(size):
         os.chdir('../storage/grib2')
         # subprocess.run(['curl', '-O', url_surf], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=cwd) # データダウンロード
         subprocess.run(['curl', '-O', url_surf], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) # データダウンロード
-        os.chdir('../code')
+        os.chdir('../../code')
         file_surf, grbs = readgrib2(url_surf)
         # データを取り出す
         prmsl = grbs.select(parameterName='Pressure reduced to MSL')
